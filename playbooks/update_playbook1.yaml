@@ -1,0 +1,56 @@
+- name: "Execute a command to display hosts file on localhost"
+  hosts: localhost
+  tasks:
+    - name: "Execute a command to display hosts file"
+      command: cat /etc/hosts
+
+# Update with cat command
+- name: "Execute two commands on localhost"
+  hosts: localhost
+  tasks:
+    - name: "Execute a date command"
+      command: date
+
+    - name: "Execute a command to display hosts file"
+      command: cat /etc/hosts
+
+# Update to run on web_node1
+-
+    name: 'Execute two commands on localhost'
+    hosts: web_node1
+    tasks:
+        -
+            name: 'Execute a date command'
+            command: date
+        -
+            name: 'Execute a command to display hosts file'
+            command: 'cat /etc/hosts'
+
+# Update to run on the boston nodes
+-
+    name: 'Execute two commands on web_node1'
+    hosts: boston_nodes
+    tasks:
+        -
+            name: 'Execute a date command'
+            command: date
+        -
+            name: 'Execute a command to display hosts file'
+            command: 'cat /etc/hosts'
+
+# Add a new play for web_node2 and run cat command
+-
+    name: 'Execute command to display date on web_node1'
+    hosts: web_node1
+    tasks:
+        -
+            name: 'Execute a date command'
+            command: date
+
+-
+    name: 'Execute a command to display hosts file contents on web_node2'
+    hosts: web_node2
+    tasks:
+        -
+            name: 'Execute a command to display hosts file'
+            command: cat /etc/hosts
