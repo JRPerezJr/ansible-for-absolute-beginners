@@ -1,4 +1,4 @@
-<h1 align="center">Ansible for Absolute Beginners 👋</h1>
+<h1 align="center">Ansible for Absolute Beginners</h1>
 
 <br>
 
